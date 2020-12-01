@@ -4,8 +4,13 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+      v-for="friend in friends"
+      :key="friend.id"
+      :name="friend.name"
+      :clanName="friend.clanName"
+      :rank="friend.rank"
+      ></friend-contact>
     </ul>
   </section>
 </template>
@@ -16,16 +21,22 @@ export default {
     return {
       friends: [
         {
-          id: "manuel",
-          name: "Manuel Lorenz",
-          phone: "0123 45678 90",
-          email: "manuel@localhost.com",
+          id: "001",
+          name: "Itachi Uchiha",
+          clanName: "Uchiha",
+          rank: "Anbu Captain",
         },
         {
-          id: "julie",
-          name: "Julie Jones",
-          phone: "0987 654421 21",
-          email: "julie@localhost.com",
+          id: "002",
+          name: "Hashirama Senju",
+          clanName: "Senju",
+          rank: "1st Hokage",
+        },
+         {
+          id: "003",
+          name: "Tobirama Senju",
+          clanName: "Senju",
+          rank: "2nd Hokage",
         },
       ],
     };

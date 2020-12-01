@@ -1,15 +1,15 @@
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
+    <h2>{{ name }}</h2>
     <button @click="toggleDetails">Show Details</button>
     <ul v-if="detailsAreVisible">
       <li>
-        <strong>Phone:</strong>
-        {{ friend.phone }}
+        <strong>Clan Name:</strong>
+        {{ clanName }}
       </li>
       <li>
-        <strong>Email:</strong>
-        {{ friend.email }}
+        <strong>Rank:</strong>
+        {{ rank }}
       </li>
     </ul>
   </li>
@@ -17,6 +17,26 @@
 
 <script>
 export default {
+  // props:[
+  //   'name',
+  //   'clanName',
+  //   'rank'
+  // ],
+
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    clanName: {
+      type: String,
+      required: true,
+    },
+    rank: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       detailsAreVisible: false,
@@ -31,7 +51,7 @@ export default {
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
-    }
-  }
+    },
+  },
 };
 </script>
